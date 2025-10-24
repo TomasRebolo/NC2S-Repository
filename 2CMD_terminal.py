@@ -728,12 +728,23 @@ def verify_hmac(data, session_info, client_cn, msg_type):
     current_time = int(time.time() * 1e6)
     offset = session_info["offset"]
     role = session_info.get("time_sync_role")
+    if timestamp in client_timestamps.get(client_cn, deque(maxlen=200)):
+        if LOG_MODE in (1, 2):
+            logger.info(f"[{cmd2_cn}] Timestamp verification failed for {client_cn}: Duplicate")
+        popup_queue.put(("Timestamp Error", f"Repeated timestamp for {client_cn}\nType={msg_type}\n", client_cn))
+        return None
     if role == "server":
         adjusted_timestamp = timestamp + offset
     else:
         adjusted_timestamp = timestamp - offset
     gap = abs(adjusted_timestamp - current_time)
-
+    
+    if gap > 2000000:
+        number_gap_drop += 1
+        if LOG_MODE in (1, 2):
+            logger.info(f"[{cmd2_cn}] Timestamp verification failed for {client_cn}: Outside 400ms window")
+        popup_queue.put(("Timestamp Error", f"Timestamp outside window for {client_cn}\nGap: {gap} μs", client_cn))
+        return None
     # Try current session key
     computed_hmac = compute_hmac(type_byte, payload, timestamp_bytes, session_info["session_key_receiving"])
     #logger.info(f"[{cmd2_cn}] HMAC verification for {client_cn}:")
@@ -770,17 +781,8 @@ def verify_hmac(data, session_info, client_cn, msg_type):
             logger.info(f"[{cmd2_cn}] HMAC failed with current key and no valid pending key")
         return None
 
-    if timestamp in client_timestamps.get(client_cn, deque(maxlen=200)):
-        if LOG_MODE in (1, 2):
-            logger.info(f"[{cmd2_cn}] Timestamp verification failed for {client_cn}: Duplicate")
-        popup_queue.put(("Timestamp Error", f"Repeated timestamp for {client_cn}\nType={msg_type}\n", client_cn))
-        return None
-    if gap > 2000000:
-        number_gap_drop += 1
-        if LOG_MODE in (1, 2):
-            logger.info(f"[{cmd2_cn}] Timestamp verification failed for {client_cn}: Outside 400ms window")
-        popup_queue.put(("Timestamp Error", f"Timestamp outside window for {client_cn}\nGap: {gap} μs", client_cn))
-        return None
+    
+
 
     client_timestamps.setdefault(client_cn, deque(maxlen=200)).append(timestamp)
     #logger.info(f"[{cmd2_cn}] Verified for {client_cn}")
@@ -842,7 +844,12 @@ def handle_mtls_client(client_socket, addr):
                 logger.info(f"[{cmd2_cn}] Connection rejected: peer certificate serial {client_serial} of {client_cn} is revoked.")
             client_socket.close()
             return
-        
+        try:
+            # Use the peer IP from the provided addr tuple instead of undefined 'ip'
+            ssl.match_hostname(client_socket.getpeercert(), addr[0])
+        except ssl.CertificateError as e:
+            client_socket.close()
+            raise ValueError(f"Peer certificate does not match expected IP {addr[0]}: {e}") from e
         if not client_cn.lower() == "cmd":
             raise ValueError(f"Invalid peer CN: {client_cn}")
         if not isinstance(client_pu, EllipticCurvePublicKey):
@@ -1030,7 +1037,11 @@ def establish_gcs_connection(ip, mtls_port, udp_port, cred, cred_hash, credentia
             
             if peer_cn != gcs_cn:
                 raise ValueError(f"Peer CN {peer_cn} does not match expected {gcs_cn}")
-            
+            try:
+                ssl.match_hostname(secure_socket.getpeercert(), ip)
+            except ssl.CertificateError as e:
+                secure_socket.close()
+                raise ValueError(f"Peer certificate does not match expected IP {ip}: {e}") from e
             if not isinstance(peer_public_key, EllipticCurvePublicKey):
                 raise ValueError("Expected EC public key")
             
