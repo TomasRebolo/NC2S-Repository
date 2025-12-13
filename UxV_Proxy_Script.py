@@ -466,21 +466,6 @@ def verify_hmac(data, session_info, client_id, msg_type):
     adjusted_timestamp = timestamp + offset
     gap = abs(adjusted_timestamp - current_time)
 
-    if timestamp in client_timestamps.get(client_id, deque(maxlen=200)):
-        if LOG_MODE in (1, 2):
-            logger.info(f"[{sitl_id}] Repeated timestamp for {client_id}")
-        popup_queue.put(("Timestamp Error",
-                         f"Repeated timestamp detected for {client_id}\nType: {msg_type}\nTimestamp: {timestamp}", client_id))
-        return None
-
-    if gap > 400000:
-        number_gap_drop += 1
-        if LOG_MODE in (1, 2):
-            logger.info(f"[{sitl_id}] Timestamp {timestamp} is out of sync ({gap} μs)")
-        popup_queue.put(("Timestamp Error",
-                         f"Timestamp out of window for {client_id}\nGap: {gap} μs", client_id))
-        return None
-
     # Try with current key
     computed_hmac = compute_hmac(type_byte, payload, timestamp_bytes, session_info["current_session_key_receiving"])
     if computed_hmac == received_hmac:
@@ -511,7 +496,21 @@ def verify_hmac(data, session_info, client_id, msg_type):
             logger.info(f"[{sitl_id}] HMAC failed with current key and no valid pending key to try")
         return None
 
-    
+    # Timestamp validation
+    if timestamp in client_timestamps.get(client_id, deque(maxlen=200)):
+        if LOG_MODE in (1, 2):
+            logger.info(f"[{sitl_id}] Repeated timestamp for {client_id}")
+        popup_queue.put(("Timestamp Error",
+                         f"Repeated timestamp detected for {client_id}\nType: {msg_type}\nTimestamp: {timestamp}", client_id))
+        return None
+
+    if gap > 400000:
+        number_gap_drop += 1
+        if LOG_MODE in (1, 2):
+            logger.info(f"[{sitl_id}] Timestamp {timestamp} is out of sync ({gap} μs)")
+        popup_queue.put(("Timestamp Error",
+                         f"Timestamp out of window for {client_id}\nGap: {gap} μs", client_id))
+        return None
 
     client_timestamps.setdefault(client_id, deque(maxlen=200)).append(timestamp)
     return (type_byte, payload, gap)
@@ -657,12 +656,7 @@ def handle_client_connection(client_socket, addr, sitl_connection):
 
         if not gcs_cn.startswith("GCS"):
             raise ValueError(f"Unexpected CN: {gcs_cn}")
-        try:
-            # Use the peer IP from the provided addr tuple instead of undefined 'ip'
-            ssl.match_hostname(client_socket.getpeercert(), addr[0])
-        except ssl.CertificateError as e:
-            client_socket.close()
-            raise ValueError(f"Peer certificate does not match expected IP {addr[0]}: {e}") from e
+        
         client_socket.settimeout(20.0)
         cred_len_bytes = client_socket.recv(4)
         if len(cred_len_bytes) != 4:

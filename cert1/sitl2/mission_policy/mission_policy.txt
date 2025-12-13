@@ -1,0 +1,14 @@
+{
+  "uxv_permissions_sending": {
+    "Access1": ["01", "07", "11"],
+    "Access2": {"01": ["GLOBAL_POSITION_INT", "VFR_HUD", "HEARTBEAT"], "07": null, "03": null, "11": null, "04": null},
+    "Access3": {"01": ["GLOBAL_POSITION_INT", "HEARTBEAT"], "07": null, "03": null, "11": null, "04": null},
+    "SendWaypoint": ["02"]
+  },
+  "uxv_permissions_receiving": {
+    "Access1": ["01", "07", "11", "03", "15", "16", "17"],
+    "Access2": {"01": ["HEARTBEAT"], "07": null, "11": null, "03": null, "15": null, "16": null, "17": null},
+    "Access3": {"01": ["HEARTBEAT"], "07": null, "11": null, "03": null, "15": null, "16": null, "17": null},
+    "SendWaypoint": {"02": null}
+  }
+}

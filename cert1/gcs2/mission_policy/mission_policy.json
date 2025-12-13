@@ -1,0 +1,26 @@
+{
+  "uxv_permissions_sending": {
+    "Access1": {"01": null, "07": null, "03": null, "11": null, "04": null, "15": null, "16": null, "17": null},
+    "Access2": {"01": ["HEARTBEAT"], "07": null, "03": null, "11": null, "04": null, "15": null, "16": null, "17": null},
+    "Access3": {"01": ["HEARTBEAT"], "07": null, "03": null, "11": null, "04": null, "15": null, "16": null, "17": null},
+    "SendWaypoint": ["02"]
+  },
+  "uxv_permissions_receiving": {
+    "Access1": ["01", "07", "11"],
+    "Access2": {"01": ["GLOBAL_POSITION_INT", "VFR_HUD", "HEARTBEAT"], "07": null, "11": null},
+    "Access3": {"01": ["GLOBAL_POSITION_INT", "HEARTBEAT"], "07": null, "11": null},
+    "SendWaypoint": ["02"]
+  },
+  "thirdparty_permissions_sending": {
+    "Access1": ["01", "06", "07", "11"],
+    "Access2": {"01": ["GLOBAL_POSITION_INT", "HEARTBEAT"], "06": null, "07": null, "11": null},
+    "Access3": ["06", "07", "11"],
+    "SendWaypoint": ["02"]
+  },
+  "thirdparty_permissions_receiving": {
+    "Access1": ["03", "04", "05", "07", "11", "12", "13", "16", "17"],
+    "Access2": ["03", "04", "05", "07", "11", "12", "13", "16", "17"],
+    "Access3": ["03", "04", "05", "07", "11", "12", "13", "16", "17"],
+    "SendWaypoint": ["02"]
+  }
+}

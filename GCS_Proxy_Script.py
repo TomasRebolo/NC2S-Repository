@@ -22,6 +22,8 @@ from cryptography.hazmat.primitives.asymmetric import ec
 from cryptography.x509 import load_der_x509_certificate
 from cryptography.hazmat.primitives.asymmetric.ec import EllipticCurvePublicKey
 from cryptography.x509 import load_der_x509_crl
+from cryptography.x509 import SubjectAlternativeName
+import cryptography.x509 as x509
 import datetime
 import cProfile
 import pstats
@@ -727,21 +729,6 @@ def verify_hmac(data, session_info, client_cn, msg_type):
         adjusted_timestamp = timestamp - offset
     current_time = int(time.time() * 1e6)
     gap = abs(adjusted_timestamp - current_time)
-    
-    if timestamp in client_timestamps.get(client_cn, deque(maxlen=200)):
-        if LOG_MODE in (1, 2):
-            logger.info(f"[{GCS_cn}] Timestamp verification failed for {client_cn}: Duplicate")
-        popup_queue.put(("Timestamp Error", f"Repeated timestamp for {client_cn}\nType={msg_type}\n", client_cn))
-        return None
-    if gap > 4000000:
-        number_gap_drop += 1
-        if LOG_MODE in (1, 2):
-            logger.info(f"[{GCS_cn}] Timestamp verification failed for {client_cn}: Outside 400ms window")
-        current_time = int(time.time() * 1e6) 
-        #if LOG_MODE in (1, 2):
-         #   logger.info(f"[{GCS_cn}] start-current hmac gap: {timestamp_start-current_time}")
-        popup_queue.put(("Timestamp Error", f"Timestamp outside window for {client_cn}\nGap: {gap} μs", client_cn))
-        return None
     #logger.info(f"[{GCS_cn}] start-current hmac init: {timestamp_start-current_time} μs")
     # Try current session key
     computed_hmac = compute_hmac(type_byte, payload, timestamp_bytes, session_info["session_key_receiving"])
@@ -783,7 +770,20 @@ def verify_hmac(data, session_info, client_cn, msg_type):
             logger.info(f"[{GCS_cn}] HMAC failed with current key and no valid pending key")
         return None
 
-    
+    if timestamp in client_timestamps.get(client_cn, deque(maxlen=200)):
+        if LOG_MODE in (1, 2):
+            logger.info(f"[{GCS_cn}] Timestamp verification failed for {client_cn}: Duplicate")
+        popup_queue.put(("Timestamp Error", f"Repeated timestamp for {client_cn}\nType={msg_type}\n", client_cn))
+        return None
+    if gap > 4000000:
+        number_gap_drop += 1
+        if LOG_MODE in (1, 2):
+            logger.info(f"[{GCS_cn}] Timestamp verification failed for {client_cn}: Outside 400ms window")
+        current_time = int(time.time() * 1e6) 
+        #if LOG_MODE in (1, 2):
+         #   logger.info(f"[{GCS_cn}] start-current hmac gap: {timestamp_start-current_time}")
+        popup_queue.put(("Timestamp Error", f"Timestamp outside window for {client_cn}\nGap: {gap} μs", client_cn))
+        return None
 
     client_timestamps.setdefault(client_cn, deque(maxlen=200)).append(timestamp)
     #logger.info(f"[{GCS_cn}] Verified for {client_cn}")
@@ -856,11 +856,6 @@ def connect_to_uxv(uxv_cn, uxv_ip, uxv_mtls_port, uxv_udp_port, cred_03, cred_ti
                     secure_socket.close()
                     return
             
-            try:
-                ssl.match_hostname(secure_socket.getpeercert(), ip)
-            except ssl.CertificateError as e:
-                secure_socket.close()
-                raise ValueError(f"Peer certificate does not match expected IP {ip}: {e}") from e
             
             
             if uxv_cn_received != uxv_cn:
@@ -1004,13 +999,24 @@ def handle_mtls_client(client_socket, addr):
         if client_cn not in CMD_cn or client_cn.startswith("2CMD"):
             raise ValueError(f"Unexpected CN: {client_cn}")
 
-        
+        ip_matched_san = False
         try:
-            # Use the peer IP from the provided addr tuple instead of undefined 'ip'
-            ssl.match_hostname(client_socket.getpeercert(), addr[0])
-        except ssl.CertificateError as e:
-            client_socket.close()
-            raise ValueError(f"Peer certificate does not match expected IP {addr[0]}: {e}") from e
+            # Attempt to get the SAN extension
+            san = cert_obj.extensions.get_extension_for_class(SubjectAlternativeName)
+            # Check for IP addresses in the SAN extension
+            if san.value.get_values_for_type(x509.IPAddress):
+                for san_ip in san.value.get_values_for_type(x509.IPAddress):
+                    if str(san_ip) == addr[0]:
+                        ip_matched_san = True
+                        if LOG_MODE in (1, 2):
+                            logger.info(f"[{GCS_cn}] Host IP ({addr[0]}) matched Subject Alternative Name: {san_ip}")
+                        break
+        except x509.ExtensionNotFound:
+            raise ValueError("No Subject Alternative Name extension found in certificate")
+        
+        if not ip_matched_san:
+            raise ValueError(f"Host identity verification failed: Connection IP ({addr[0]}) does not match CN or any Subject Alternative Name in the certificate.")
+    
         if not isinstance(client_pu, EllipticCurvePublicKey):
             raise ValueError("Expected EC public key")
         if LOG_MODE in (1, 2):

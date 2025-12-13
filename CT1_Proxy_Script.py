@@ -50,7 +50,6 @@ from time_sync_utilis import (
 
 
 
-
 # Parse and validate LOG_MODE (0=performance, 1=console, 2=console+file)
 if len(sys.argv) != 2:
     print(f"Usage: {os.path.basename(sys.argv[0])} <LOG_MODE>")
@@ -2469,19 +2468,6 @@ def verify_hmac(data, session_key, cn, msg_type, addr, offset):
     payload = data[1:-24]
     timestamp_bytes = data[-24:-16]
     received_hmac = data[-16:]
-    if timestamp in client_timestamps.get(cn, deque(maxlen=200)):
-        popup_queue.put(("Timestamp Error", f"Repeated timestamp for {cn}\nMessage Type: {msg_type}\nTimestamp: {timestamp}\n", cn))
-        if LOG_MODE in (1, 2):
-            logger.info(f"[{cmd_cn}] Timestamp verification failed for {cn}: Duplicate")
-        return None
-    
-    if gap > 3000000:
-        number_gap_drop += 1
-        popup_queue.put(("Timestamp Error", f"Timestamp out of window for {cn}\nMessage Type: {msg_type}\nTimestamp: {timestamp}\n", cn))
-        if LOG_MODE in (1, 2):
-            logger.info(f"[{cmd_cn}] Timestamp verification failed for {cn}: Outside 400ms window")
-        return None
-    
     computed_hmac = compute_hmac(type_byte, payload, timestamp_bytes, session_key)
     timestamp = struct.unpack('<Q', timestamp_bytes)[0]
     current_time = int(time.time() * 1e6)
@@ -2501,8 +2487,17 @@ def verify_hmac(data, session_key, cn, msg_type, addr, offset):
         return None
     if LOG_MODE in (1, 2):
         logger.info(f"[{cmd_cn}] HMAC verification succeeded for {cn}, gap: {gap} μs")
-    
-    
+    if timestamp in client_timestamps.get(cn, deque(maxlen=200)):
+        popup_queue.put(("Timestamp Error", f"Repeated timestamp for {cn}\nMessage Type: {msg_type}\nTimestamp: {timestamp}\n", cn))
+        if LOG_MODE in (1, 2):
+            logger.info(f"[{cmd_cn}] Timestamp verification failed for {cn}: Duplicate")
+        return None
+    if gap > 3000000:
+        number_gap_drop += 1
+        popup_queue.put(("Timestamp Error", f"Timestamp out of window for {cn}\nMessage Type: {msg_type}\nTimestamp: {timestamp}\n", cn))
+        if LOG_MODE in (1, 2):
+            logger.info(f"[{cmd_cn}] Timestamp verification failed for {cn}: Outside 400ms window")
+        return None
     
     client_timestamps.setdefault(cn, deque(maxlen=200)).append(timestamp)
     return type_byte, payload, gap
@@ -2546,12 +2541,6 @@ def establish_cmd2_connection(ip, mtls_port, udp_port, cred, cred_hash, cred_tim
             
             if not isinstance(peer_public_key, EllipticCurvePublicKey):
                 raise ValueError("Expected EC public key")
-            
-            try:
-                ssl.match_hostname(secure_socket.getpeercert(), ip)
-            except ssl.CertificateError as e:
-                secure_socket.close()
-                raise ValueError(f"Peer certificate does not match expected IP {ip}: {e}") from e
             
             if peer_cn != cmd2_cn:
                 raise ValueError(f"Peer CN {peer_cn} does not match expected {cmd2_cn}")
@@ -2699,11 +2688,23 @@ def establish_gcs_connection(ip, mtls_port, udp_port, cred, cred_hash, cred_time
             
             if not isinstance(peer_public_key, EllipticCurvePublicKey):
                 raise ValueError("Expected EC public key")
+            ip_matched_san = False
             try:
-                ssl.match_hostname(secure_socket.getpeercert(), ip)
-            except ssl.CertificateError as e:
-                secure_socket.close()
-                raise ValueError(f"Peer certificate does not match expected IP {ip}: {e}") from e
+                # Attempt to get the SAN extension
+                san = cert_obj.extensions.get_extension_for_class(x509.SubjectAlternativeName)
+                # Check for IP addresses in the SAN extension
+                if san.value.get_values_for_type(x509.IPAddress):
+                    for san_ip in san.value.get_values_for_type(x509.IPAddress):
+                        if str(san_ip) == ip:
+                            ip_matched_san = True
+                            if LOG_MODE in (1, 2):
+                                logger.info(f"[{cmd_cn}] Host IP ({ip}) matched Subject Alternative Name: {san_ip}")
+                            break
+            except x509.ExtensionNotFound:
+                raise ValueError("No Subject Alternative Name extension found in certificate")
+            
+            if not ip_matched_san:
+                raise ValueError(f"Host identity verification failed: Connection IP ({ip}) does not match CN or any Subject Alternative Name in the certificate.")
             if peer_cn != gcs_cn:
                 raise ValueError(f"Peer CN {peer_cn} does not match expected {gcs_cn}")
             
@@ -3552,7 +3553,7 @@ def setup_mavlink_and_gui():
                     logger.info(f"[{cmd_cn}] Error processing UDP data: {e}")
                 continue
 
-        # Clean up timed-out SITLs
+        
         #for sitl_key in list(sitls.keys()):
         #    sysid, node_cn = sitl_key
         #    if current_time - sitls[sitl_key]["last_timestamp"] > 10:

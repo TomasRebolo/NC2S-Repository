@@ -1,0 +1,267 @@
+2025-09-19 11:13:46,645 - INFO - [gcs1] Logging initialized (mode=2)
+2025-09-19 11:13:46,646 - INFO - [gcs1] PID: 7656
+2025-09-19 11:13:46,745 - INFO - [GCS1] Loaded C:\Users\BRAVO\Desktop\Rebolo\tese\cert1\gcs1\gcs1.crt with serial 4098
+2025-09-19 11:13:46,745 - INFO - [GCS1] PUgcs: <cryptography.hazmat.bindings._rust.openssl.ec.ECPublicKey object at 0x00000174719A5C70>
+2025-09-19 11:13:46,746 - INFO - [GCS1] Loaded PUcmd from C:\Users\BRAVO\Desktop\Rebolo\tese\cert1\gcs1\cmd.crt
+2025-09-19 11:13:46,749 - INFO - [GCS1] Loaded CRL: crl_1758275158.238793.crl, Timestamp=1758275158.238793
+2025-09-19 11:13:46,750 - INFO - [GCS1] No valid credentials in C:\Users\BRAVO\Desktop\Rebolo\tese\cert1\gcs1\credentials
+2025-09-19 11:13:46,751 - INFO - NOW: 2025-09-19 10:13:46.751387+00:00, CRL NEXT UPDATE: 2025-10-18 11:49:39+00:00
+2025-09-19 11:13:46,751 - INFO - [GCS1] Loaded CRL: empty.crl.der, Last Update=2025-09-18 11:49:39+00:00
+2025-09-19 11:13:46,761 - INFO - [GCS1] mTLS server on port 14550...
+2025-09-19 11:13:46,761 - INFO - [GCS1] Bound UDP port 15002 for thirdparty
+2025-09-19 11:13:46,762 - INFO - [GCS1] Bound UDP port 56005 for UXVs
+2025-09-19 11:13:46,762 - INFO - [GCS1] Bound UDP port 14555 for Mission Planner
+2025-09-19 11:13:46,780 - INFO - [GCS1] Key monitor thread
+2025-09-19 11:13:46,783 - INFO - [GCS1] Cleanup pending DH renewals
+2025-09-19 11:13:46,797 - INFO - [GCS1] Loaded policies from C:\Users\BRAVO\Desktop\Rebolo\tese\cert1\gcs1\mission_policy\mission_policy.json
+2025-09-19 11:13:51,786 - INFO - [GCS1] Cleanup pending DH renewals
+2025-09-19 11:13:56,786 - INFO - [GCS1] Cleanup pending DH renewals
+2025-09-19 11:13:56,798 - INFO - [GCS1] Key monitor thread
+2025-09-19 11:14:01,798 - INFO - [GCS1] Cleanup pending DH renewals
+2025-09-19 11:14:06,801 - INFO - [GCS1] Key monitor thread
+2025-09-19 11:14:06,801 - INFO - [GCS1] Cleanup pending DH renewals
+2025-09-19 11:14:11,805 - INFO - [GCS1] Cleanup pending DH renewals
+2025-09-19 11:14:16,802 - INFO - [GCS1] Key monitor thread
+2025-09-19 11:14:16,808 - INFO - [GCS1] Cleanup pending DH renewals
+2025-09-19 11:14:21,814 - INFO - [GCS1] Cleanup pending DH renewals
+2025-09-19 11:14:22,142 - INFO - [GCS1] mTLS connection from ('10.10.30.20', 61381)
+2025-09-19 11:14:22,189 - INFO - NOW: 2025-09-19 10:14:22.189598+00:00, CRL NEXT UPDATE: 2025-10-18 11:49:39+00:00
+2025-09-19 11:14:22,189 - INFO - [GCS1] Loaded CRL: empty.crl.der, Last Update=2025-09-18 11:49:39+00:00
+2025-09-19 11:14:22,190 - INFO - [GCS1] mTLS from ('10.10.30.20', 61381), CN: CMD with peer_serial=4096
+2025-09-19 11:14:24,220 - INFO - [GCS1] Loaded CRL: crl_1758275158.238793.crl, Timestamp=1758275158.238793
+2025-09-19 11:14:24,221 - INFO - [GCS1] Verifying credential: Type=02, Timestamp=1758276850.803736, Lifetime=86400.0, Current time=1758276864.2214308
+2025-09-19 11:14:26,804 - INFO - [GCS1] Key monitor thread
+2025-09-19 11:14:26,831 - INFO - [GCS1] Cleanup pending DH renewals
+2025-09-19 11:14:28,674 - INFO - [GCS1] Time sync with CMD: Time sync complete: offset=3232841 μs, delay=6465682 μs, t1=1758276864424930, t2=1758276867673091, t3=1758276865456655, t4=1758276868674176
+2025-09-19 11:14:28,709 - INFO - [GCS1] Saved 0x02 credential: CMD_to_GCS1_1758276850.803736.cred
+2025-09-19 11:14:29,586 - INFO - [GCS1] Registered CMD CMD on 10.10.30.20:62908 in session_contexts
+2025-09-19 11:14:29,586 - INFO - [GCS1] Final timestamp for cmd-gcs connection - 1758276869586638.8 μs
+2025-09-19 11:14:29,586 - INFO - [GCS1] Connection establishment time for CMD: 7428835.25 μs
+2025-09-19 11:14:29,587 - INFO - [GCS1] Closed mTLS for CMD
+2025-09-19 11:14:30,389 - INFO - [GCS1]   Timestamp: 1758276867220807, Adjusted: 1758276870453648, Current: 1758276870388919, Offset: 3232841, Gap: 64729 μs
+2025-09-19 11:14:30,389 - INFO - [GCS1] HMAC verified with current session key, gap: 64729 μs
+2025-09-19 11:14:30,389 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:31,330 - INFO - [GCS1]   Timestamp: 1758276868221936, Adjusted: 1758276871454777, Current: 1758276871329945, Offset: 3232841, Gap: 124832 μs
+2025-09-19 11:14:31,330 - INFO - [GCS1] HMAC verified with current session key, gap: 124832 μs
+2025-09-19 11:14:31,330 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:31,816 - INFO - [GCS1] Sent 0x06 network mapping to CMD at ('10.10.30.20', 62908): Payload size=0 at 1758276871816653
+2025-09-19 11:14:31,845 - INFO - [GCS1] Cleanup pending DH renewals
+2025-09-19 11:14:32,449 - INFO - [GCS1]   Timestamp: 1758276869223406, Adjusted: 1758276872456247, Current: 1758276872449694, Offset: 3232841, Gap: 6553 μs
+2025-09-19 11:14:32,449 - INFO - [GCS1] HMAC verified with current session key, gap: 6553 μs
+2025-09-19 11:14:32,450 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:33,345 - INFO - [GCS1]   Timestamp: 1758276870224861, Adjusted: 1758276873457702, Current: 1758276873344925, Offset: 3232841, Gap: 112777 μs
+2025-09-19 11:14:33,345 - INFO - [GCS1] HMAC verified with current session key, gap: 112777 μs
+2025-09-19 11:14:33,345 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:34,311 - INFO - [GCS1]   Timestamp: 1758276871225796, Adjusted: 1758276874458637, Current: 1758276874310972, Offset: 3232841, Gap: 147665 μs
+2025-09-19 11:14:34,311 - INFO - [GCS1] HMAC verified with current session key, gap: 147665 μs
+2025-09-19 11:14:34,311 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:35,360 - INFO - [GCS1]   Timestamp: 1758276872226741, Adjusted: 1758276875459582, Current: 1758276875359991, Offset: 3232841, Gap: 99591 μs
+2025-09-19 11:14:35,360 - INFO - [GCS1] HMAC verified with current session key, gap: 99591 μs
+2025-09-19 11:14:35,360 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:36,318 - INFO - [GCS1]   Timestamp: 1758276873227532, Adjusted: 1758276876460373, Current: 1758276876318857, Offset: 3232841, Gap: 141516 μs
+2025-09-19 11:14:36,319 - INFO - [GCS1] HMAC verified with current session key, gap: 141516 μs
+2025-09-19 11:14:36,319 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:36,813 - INFO - [GCS1] Key monitor thread
+2025-09-19 11:14:36,829 - INFO - [GCS1] Sent 0x06 network mapping to CMD at ('10.10.30.20', 62908): Payload size=0 at 1758276876818163
+2025-09-19 11:14:36,846 - INFO - [GCS1] Cleanup pending DH renewals
+2025-09-19 11:14:37,431 - INFO - [GCS1]   Timestamp: 1758276874227965, Adjusted: 1758276877460806, Current: 1758276877430994, Offset: 3232841, Gap: 29812 μs
+2025-09-19 11:14:37,431 - INFO - [GCS1] HMAC verified with current session key, gap: 29812 μs
+2025-09-19 11:14:37,431 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:38,329 - INFO - [GCS1]   Timestamp: 1758276875228997, Adjusted: 1758276878461838, Current: 1758276878329669, Offset: 3232841, Gap: 132169 μs
+2025-09-19 11:14:38,330 - INFO - [GCS1] HMAC verified with current session key, gap: 132169 μs
+2025-09-19 11:14:38,330 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:39,309 - INFO - [GCS1]   Timestamp: 1758276876230020, Adjusted: 1758276879462861, Current: 1758276879309017, Offset: 3232841, Gap: 153844 μs
+2025-09-19 11:14:39,309 - INFO - [GCS1] HMAC verified with current session key, gap: 153844 μs
+2025-09-19 11:14:39,309 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:40,343 - INFO - [GCS1]   Timestamp: 1758276877231047, Adjusted: 1758276880463888, Current: 1758276880343184, Offset: 3232841, Gap: 120704 μs
+2025-09-19 11:14:40,343 - INFO - [GCS1] HMAC verified with current session key, gap: 120704 μs
+2025-09-19 11:14:40,343 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:41,376 - INFO - [GCS1]   Timestamp: 1758276878232255, Adjusted: 1758276881465096, Current: 1758276881375847, Offset: 3232841, Gap: 89249 μs
+2025-09-19 11:14:41,376 - INFO - [GCS1] HMAC verified with current session key, gap: 89249 μs
+2025-09-19 11:14:41,376 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:41,845 - INFO - [GCS1] Sent 0x06 network mapping to CMD at ('10.10.30.20', 62908): Payload size=0 at 1758276881830317
+2025-09-19 11:14:41,860 - INFO - [GCS1] Cleanup pending DH renewals
+2025-09-19 11:14:42,411 - INFO - [GCS1]   Timestamp: 1758276879233280, Adjusted: 1758276882466121, Current: 1758276882411367, Offset: 3232841, Gap: 54754 μs
+2025-09-19 11:14:42,411 - INFO - [GCS1] HMAC verified with current session key, gap: 54754 μs
+2025-09-19 11:14:42,412 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:43,350 - INFO - [GCS1]   Timestamp: 1758276880234309, Adjusted: 1758276883467150, Current: 1758276883350812, Offset: 3232841, Gap: 116338 μs
+2025-09-19 11:14:43,351 - INFO - [GCS1] HMAC verified with current session key, gap: 116338 μs
+2025-09-19 11:14:43,351 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:44,324 - INFO - [GCS1]   Timestamp: 1758276881235283, Adjusted: 1758276884468124, Current: 1758276884324785, Offset: 3232841, Gap: 143339 μs
+2025-09-19 11:14:44,325 - INFO - [GCS1] HMAC verified with current session key, gap: 143339 μs
+2025-09-19 11:14:44,325 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:45,359 - INFO - [GCS1]   Timestamp: 1758276882236251, Adjusted: 1758276885469092, Current: 1758276885358994, Offset: 3232841, Gap: 110098 μs
+2025-09-19 11:14:45,359 - INFO - [GCS1] HMAC verified with current session key, gap: 110098 μs
+2025-09-19 11:14:45,359 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:46,363 - INFO - [GCS1]   Timestamp: 1758276883237372, Adjusted: 1758276886470213, Current: 1758276886363223, Offset: 3232841, Gap: 106990 μs
+2025-09-19 11:14:46,363 - INFO - [GCS1] HMAC verified with current session key, gap: 106990 μs
+2025-09-19 11:14:46,363 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:46,829 - INFO - [GCS1] Key monitor thread
+2025-09-19 11:14:46,846 - INFO - [GCS1] Sent 0x06 network mapping to CMD at ('10.10.30.20', 62908): Payload size=0 at 1758276886845892
+2025-09-19 11:14:46,861 - INFO - [GCS1] Cleanup pending DH renewals
+2025-09-19 11:14:47,408 - INFO - [GCS1]   Timestamp: 1758276884238396, Adjusted: 1758276887471237, Current: 1758276887407930, Offset: 3232841, Gap: 63307 μs
+2025-09-19 11:14:47,408 - INFO - [GCS1] HMAC verified with current session key, gap: 63307 μs
+2025-09-19 11:14:47,408 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:48,338 - INFO - [GCS1]   Timestamp: 1758276885239421, Adjusted: 1758276888472262, Current: 1758276888338458, Offset: 3232841, Gap: 133804 μs
+2025-09-19 11:14:48,338 - INFO - [GCS1] HMAC verified with current session key, gap: 133804 μs
+2025-09-19 11:14:48,338 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:49,409 - INFO - [GCS1]   Timestamp: 1758276886240450, Adjusted: 1758276889473291, Current: 1758276889409531, Offset: 3232841, Gap: 63760 μs
+2025-09-19 11:14:49,409 - INFO - [GCS1] HMAC verified with current session key, gap: 63760 μs
+2025-09-19 11:14:49,410 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:50,357 - INFO - [GCS1]   Timestamp: 1758276887241473, Adjusted: 1758276890474314, Current: 1758276890357563, Offset: 3232841, Gap: 116751 μs
+2025-09-19 11:14:50,357 - INFO - [GCS1] HMAC verified with current session key, gap: 116751 μs
+2025-09-19 11:14:50,358 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:51,563 - INFO - [GCS1]   Timestamp: 1758276888030314, Adjusted: 1758276891263155, Current: 1758276891563581, Offset: 3232841, Gap: 300426 μs
+2025-09-19 11:14:51,563 - INFO - [GCS1] HMAC verified with current session key, gap: 300426 μs
+2025-09-19 11:14:51,563 - INFO - [GCS1] received 0x05 -----------
+2025-09-19 11:14:51,595 - INFO - [GCS1] Loaded CRL: crl_1758275158.238793.crl, Timestamp=1758275158.238793
+2025-09-19 11:14:51,596 - INFO - [GCS1] Verifying credential: Type=03, Timestamp=1758276888.030314, Lifetime=86400.0, Current time=1758276891.5961368
+2025-09-19 11:14:51,610 - INFO - [GCS1] Saved 0x03 credential: GCS1_to_sitl1_1758276888.030314.cred
+2025-09-19 11:14:51,844 - INFO - [GCS1]   Timestamp: 1758276888242583, Adjusted: 1758276891475424, Current: 1758276891844741, Offset: 3232841, Gap: 369317 μs
+2025-09-19 11:14:51,845 - INFO - [GCS1] HMAC verified with current session key, gap: 369317 μs
+2025-09-19 11:14:51,845 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:51,857 - INFO - [GCS1] Sent 0x06 network mapping to CMD at ('10.10.30.20', 62908): Payload size=0 at 1758276891857237
+2025-09-19 11:14:51,877 - INFO - [GCS1] Cleanup pending DH renewals
+2025-09-19 11:14:52,047 - INFO - [GCS1] mTLS to UXV sitl1 at 172.18.28.162:14570 (Attempt 1)
+2025-09-19 11:14:52,048 - INFO - [GCS1] Received certificate from UXV sitl1: CN=sitl1, Serial=4100
+2025-09-19 11:14:52,065 - INFO - NOW: 2025-09-19 10:14:52.065624+00:00, CRL NEXT UPDATE: 2025-10-18 11:49:39+00:00
+2025-09-19 11:14:52,066 - INFO - [GCS1] Loaded CRL: empty.crl.der, Last Update=2025-09-18 11:49:39+00:00
+2025-09-19 11:14:52,080 - INFO - [GCS1] Sent 0x03 to UXV sitl1: Length=284
+2025-09-19 11:14:52,150 - INFO - [GCS1] Time sync with sitl1: Time sync complete: offset=-2162998 μs, delay=-4325997 μs, t1=1758276892133583, t2=1758276889970842, t3=1758276892139204, t4=1758276889975948
+2025-09-19 11:14:52,151 - INFO - [GCS1] Added UXV session for sitl1 at 172.18.28.162:15001 with capacity level Access1
+2025-09-19 11:14:52,158 - INFO - [GCS1] Sent UDP port 56005 to GCS sitl1
+2025-09-19 11:14:52,158 - INFO - [GCS1] Connection establishment to sitl1 initial time: 1758276891616766.0 μs
+2025-09-19 11:14:52,159 - INFO - [GCS1] Connection establishment time to UXV sitl1: 542085.5 μs
+2025-09-19 11:14:52,159 - INFO - [GCS1] Closed mTLS connection attempt to UXV sitl1
+2025-09-19 11:14:52,357 - INFO - [GCS1]   Timestamp: 1758276889244059, Adjusted: 1758276892476900, Current: 1758276892357103, Offset: 3232841, Gap: 119797 μs
+2025-09-19 11:14:52,357 - INFO - [GCS1] HMAC verified with current session key, gap: 119797 μs
+2025-09-19 11:14:52,357 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:52,471 - INFO - [GCS1]   Timestamp: 1758276890299463, Adjusted: 1758276892462461, Current: 1758276892471281, Offset: -2162998, Gap: 8820 μs
+2025-09-19 11:14:52,471 - INFO - [GCS1] HMAC verified with current session key, gap: 8820 μs
+2025-09-19 11:14:52,472 - INFO - [GCS1] Received 01 From UXV sitl1: Type=HEARTBEAT, SysID=1, Timestamp=1758276890299463
+2025-09-19 11:14:52,472 - INFO - [GCS1] Forwarded to CMD: Type=HEARTBEAT, Timestamp=1758276892472559
+2025-09-19 11:14:52,473 - INFO - [GCS1] Mission Planner error: [WinError 10054] Uma ligação existente foi forçada a fechar pelo anfitrião remoto
+2025-09-19 11:14:53,374 - INFO - [GCS1]   Timestamp: 1758276890245310, Adjusted: 1758276893478151, Current: 1758276893374538, Offset: 3232841, Gap: 103613 μs
+2025-09-19 11:14:53,374 - INFO - [GCS1] HMAC verified with current session key, gap: 103613 μs
+2025-09-19 11:14:53,374 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:53,470 - INFO - [GCS1]   Timestamp: 1758276891296692, Adjusted: 1758276893459690, Current: 1758276893470553, Offset: -2162998, Gap: 10863 μs
+2025-09-19 11:14:53,470 - INFO - [GCS1] HMAC verified with current session key, gap: 10863 μs
+2025-09-19 11:14:53,471 - INFO - [GCS1] Received 01 From UXV sitl1: Type=HEARTBEAT, SysID=1, Timestamp=1758276891296692
+2025-09-19 11:14:53,471 - INFO - [GCS1] Forwarded to CMD: Type=HEARTBEAT, Timestamp=1758276893471745
+2025-09-19 11:14:53,472 - INFO - [GCS1] Mission Planner error: [WinError 10054] Uma ligação existente foi forçada a fechar pelo anfitrião remoto
+2025-09-19 11:14:53,532 - INFO - [GCS1]   Timestamp: 1758276891360729, Adjusted: 1758276893523727, Current: 1758276893532699, Offset: -2162998, Gap: 8972 μs
+2025-09-19 11:14:53,532 - INFO - [GCS1] HMAC verified with current session key, gap: 8972 μs
+2025-09-19 11:14:53,533 - INFO - [GCS1] Received 01 From UXV sitl1: Type=TIMESYNC, SysID=1, Timestamp=1758276891360729
+2025-09-19 11:14:53,533 - INFO - [GCS1] Mission Planner error: [WinError 10054] Uma ligação existente foi forçada a fechar pelo anfitrião remoto
+2025-09-19 11:14:53,533 - INFO - [GCS1] Message type 01, Mavlink: TIMESYNC not allowed for Node with role: sender and capacity Access1
+2025-09-19 11:14:54,398 - INFO - [GCS1]   Timestamp: 1758276891246749, Adjusted: 1758276894479590, Current: 1758276894397987, Offset: 3232841, Gap: 81603 μs
+2025-09-19 11:14:54,398 - INFO - [GCS1] HMAC verified with current session key, gap: 81603 μs
+2025-09-19 11:14:54,398 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:54,470 - INFO - [GCS1]   Timestamp: 1758276892299585, Adjusted: 1758276894462583, Current: 1758276894470043, Offset: -2162998, Gap: 7460 μs
+2025-09-19 11:14:54,470 - INFO - [GCS1] HMAC verified with current session key, gap: 7460 μs
+2025-09-19 11:14:54,470 - INFO - [GCS1] Received 01 From UXV sitl1: Type=HEARTBEAT, SysID=1, Timestamp=1758276892299585
+2025-09-19 11:14:54,473 - INFO - [GCS1] Forwarded to CMD: Type=HEARTBEAT, Timestamp=1758276894472966
+2025-09-19 11:14:54,477 - INFO - [GCS1] Mission Planner error: [WinError 10054] Uma ligação existente foi forçada a fechar pelo anfitrião remoto
+2025-09-19 11:14:55,374 - INFO - [GCS1]   Timestamp: 1758276892247775, Adjusted: 1758276895480616, Current: 1758276895373971, Offset: 3232841, Gap: 106645 μs
+2025-09-19 11:14:55,374 - INFO - [GCS1] HMAC verified with current session key, gap: 106645 μs
+2025-09-19 11:14:55,374 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:55,468 - INFO - [GCS1]   Timestamp: 1758276893296874, Adjusted: 1758276895459872, Current: 1758276895468095, Offset: -2162998, Gap: 8223 μs
+2025-09-19 11:14:55,468 - INFO - [GCS1] HMAC verified with current session key, gap: 8223 μs
+2025-09-19 11:14:55,468 - INFO - [GCS1] Received 01 From UXV sitl1: Type=HEARTBEAT, SysID=1, Timestamp=1758276893296874
+2025-09-19 11:14:55,469 - INFO - [GCS1] Mission Planner error: [WinError 10054] Uma ligação existente foi forçada a fechar pelo anfitrião remoto
+2025-09-19 11:14:55,470 - INFO - [GCS1] Forwarded to CMD: Type=HEARTBEAT, Timestamp=1758276895469872
+2025-09-19 11:14:56,356 - INFO - [GCS1]   Timestamp: 1758276893248827, Adjusted: 1758276896481668, Current: 1758276896356536, Offset: 3232841, Gap: 125132 μs
+2025-09-19 11:14:56,356 - INFO - [GCS1] HMAC verified with current session key, gap: 125132 μs
+2025-09-19 11:14:56,356 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:56,470 - INFO - [GCS1]   Timestamp: 1758276894299715, Adjusted: 1758276896462713, Current: 1758276896470152, Offset: -2162998, Gap: 7439 μs
+2025-09-19 11:14:56,470 - INFO - [GCS1] HMAC verified with current session key, gap: 7439 μs
+2025-09-19 11:14:56,470 - INFO - [GCS1] Received 01 From UXV sitl1: Type=HEARTBEAT, SysID=1, Timestamp=1758276894299715
+2025-09-19 11:14:56,474 - INFO - [GCS1] Forwarded to CMD: Type=HEARTBEAT, Timestamp=1758276896470985
+2025-09-19 11:14:56,475 - INFO - [GCS1] Mission Planner error: [WinError 10054] Uma ligação existente foi forçada a fechar pelo anfitrião remoto
+2025-09-19 11:14:56,838 - INFO - [GCS1] Key monitor thread
+2025-09-19 11:14:56,859 - INFO - [GCS1] Sent 0x06 network mapping to CMD at ('10.10.30.20', 62908): Payload size=11 at 1758276896858230
+2025-09-19 11:14:56,872 - INFO - [GCS1] Checking UXV session sitl1 last map time: 1758276896.4708436, now: 1758276896.8586793
+2025-09-19 11:14:56,890 - INFO - [GCS1] Cleanup pending DH renewals
+2025-09-19 11:14:57,473 - INFO - [GCS1]   Timestamp: 1758276895296943, Adjusted: 1758276897459941, Current: 1758276897473017, Offset: -2162998, Gap: 13076 μs
+2025-09-19 11:14:57,473 - INFO - [GCS1] HMAC verified with current session key, gap: 13076 μs
+2025-09-19 11:14:57,473 - INFO - [GCS1] Received 01 From UXV sitl1: Type=HEARTBEAT, SysID=1, Timestamp=1758276895296943
+2025-09-19 11:14:57,476 - INFO - [GCS1] Forwarded to CMD: Type=HEARTBEAT, Timestamp=1758276897476260
+2025-09-19 11:14:57,477 - INFO - [GCS1] Mission Planner error: [WinError 10054] Uma ligação existente foi forçada a fechar pelo anfitrião remoto
+2025-09-19 11:14:57,540 - INFO - [GCS1]   Timestamp: 1758276894249853, Adjusted: 1758276897482694, Current: 1758276897540624, Offset: 3232841, Gap: 57930 μs
+2025-09-19 11:14:57,540 - INFO - [GCS1] HMAC verified with current session key, gap: 57930 μs
+2025-09-19 11:14:57,541 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:58,384 - INFO - [GCS1]   Timestamp: 1758276895250827, Adjusted: 1758276898483668, Current: 1758276898384438, Offset: 3232841, Gap: 99230 μs
+2025-09-19 11:14:58,384 - INFO - [GCS1] HMAC verified with current session key, gap: 99230 μs
+2025-09-19 11:14:58,384 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:58,470 - INFO - [GCS1]   Timestamp: 1758276896299872, Adjusted: 1758276898462870, Current: 1758276898470747, Offset: -2162998, Gap: 7877 μs
+2025-09-19 11:14:58,471 - INFO - [GCS1] HMAC verified with current session key, gap: 7877 μs
+2025-09-19 11:14:58,471 - INFO - [GCS1] Received 01 From UXV sitl1: Type=HEARTBEAT, SysID=1, Timestamp=1758276896299872
+2025-09-19 11:14:58,471 - INFO - [GCS1] Forwarded to CMD: Type=HEARTBEAT, Timestamp=1758276898471398
+2025-09-19 11:14:58,474 - INFO - [GCS1] Mission Planner error: [WinError 10054] Uma ligação existente foi forçada a fechar pelo anfitrião remoto
+2025-09-19 11:14:59,390 - INFO - [GCS1]   Timestamp: 1758276896251833, Adjusted: 1758276899484674, Current: 1758276899390023, Offset: 3232841, Gap: 94651 μs
+2025-09-19 11:14:59,390 - INFO - [GCS1] HMAC verified with current session key, gap: 94651 μs
+2025-09-19 11:14:59,390 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:14:59,475 - INFO - [GCS1]   Timestamp: 1758276897300528, Adjusted: 1758276899463526, Current: 1758276899475679, Offset: -2162998, Gap: 12153 μs
+2025-09-19 11:14:59,475 - INFO - [GCS1] HMAC verified with current session key, gap: 12153 μs
+2025-09-19 11:14:59,476 - INFO - [GCS1] Received 01 From UXV sitl1: Type=HEARTBEAT, SysID=1, Timestamp=1758276897300528
+2025-09-19 11:14:59,476 - INFO - [GCS1] Forwarded to CMD: Type=HEARTBEAT, Timestamp=1758276899476490
+2025-09-19 11:14:59,486 - INFO - [GCS1] Mission Planner error: [WinError 10054] Uma ligação existente foi forçada a fechar pelo anfitrião remoto
+2025-09-19 11:15:00,359 - INFO - [GCS1]   Timestamp: 1758276897252813, Adjusted: 1758276900485654, Current: 1758276900359318, Offset: 3232841, Gap: 126336 μs
+2025-09-19 11:15:00,359 - INFO - [GCS1] HMAC verified with current session key, gap: 126336 μs
+2025-09-19 11:15:00,359 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:15:00,468 - INFO - [GCS1]   Timestamp: 1758276898297654, Adjusted: 1758276900460652, Current: 1758276900467996, Offset: -2162998, Gap: 7344 μs
+2025-09-19 11:15:00,468 - INFO - [GCS1] HMAC verified with current session key, gap: 7344 μs
+2025-09-19 11:15:00,468 - INFO - [GCS1] Received 01 From UXV sitl1: Type=HEARTBEAT, SysID=1, Timestamp=1758276898297654
+2025-09-19 11:15:00,468 - INFO - [GCS1] Mission Planner error: [WinError 10054] Uma ligação existente foi forçada a fechar pelo anfitrião remoto
+2025-09-19 11:15:00,470 - INFO - [GCS1] Forwarded to CMD: Type=HEARTBEAT, Timestamp=1758276900469406
+2025-09-19 11:15:01,314 - INFO - [GCS1]   Timestamp: 1758276899138635, Adjusted: 1758276901301633, Current: 1758276901314167, Offset: -2162998, Gap: 12534 μs
+2025-09-19 11:15:01,314 - INFO - [GCS1] HMAC verified with current session key, gap: 12534 μs
+2025-09-19 11:15:01,314 - INFO - [GCS1] Received 07 from sitl1 session at ('172.18.28.162', 15001)
+2025-09-19 11:15:01,314 - INFO - [GCS1] Failed to process 0x07 from UXV sitl1: 'sitl1'
+2025-09-19 11:15:01,340 - INFO - [GCS1]   Timestamp: 1758276898253625, Adjusted: 1758276901486466, Current: 1758276901340715, Offset: 3232841, Gap: 145751 μs
+2025-09-19 11:15:01,340 - INFO - [GCS1] HMAC verified with current session key, gap: 145751 μs
+2025-09-19 11:15:01,341 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:15:01,861 - INFO - [GCS1] Sent 0x06 network mapping to CMD at ('10.10.30.20', 62908): Payload size=11 at 1758276901859790
+2025-09-19 11:15:01,893 - INFO - [GCS1] Cleanup pending DH renewals
+2025-09-19 11:15:02,377 - INFO - [GCS1]   Timestamp: 1758276899255154, Adjusted: 1758276902487995, Current: 1758276902377240, Offset: 3232841, Gap: 110755 μs
+2025-09-19 11:15:02,377 - INFO - [GCS1] HMAC verified with current session key, gap: 110755 μs
+2025-09-19 11:15:02,377 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:15:03,377 - INFO - [GCS1]   Timestamp: 1758276900256157, Adjusted: 1758276903488998, Current: 1758276903376993, Offset: 3232841, Gap: 112005 μs
+2025-09-19 11:15:03,377 - INFO - [GCS1] HMAC verified with current session key, gap: 112005 μs
+2025-09-19 11:15:03,377 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:15:04,408 - INFO - [GCS1]   Timestamp: 1758276901257157, Adjusted: 1758276904489998, Current: 1758276904407895, Offset: 3232841, Gap: 82103 μs
+2025-09-19 11:15:04,408 - INFO - [GCS1] HMAC verified with current session key, gap: 82103 μs
+2025-09-19 11:15:04,408 - INFO - [GCS1] Received 0x12 heartbeat from CMD: CMD
+2025-09-19 11:15:04,689 - INFO - [GCS1] Shutting down...
+2025-09-19 11:15:04,699 - INFO - [GCS1] Sent 0x07 disconnection to CMD
+2025-09-19 11:15:04,700 - INFO - [GCS1] Message statistics for CMD receiving:
+2025-09-19 11:15:04,700 - INFO - [GCS1] Type 05: Average length 341.00 bytes over 1 messages (Total: 341 bytes)
+2025-09-19 11:15:04,700 - INFO - [GCS1] Type 12: Average length 28.00 bytes over 35 messages (Total: 980 bytes)
+2025-09-19 11:15:04,700 - INFO - [GCS1] Total messages received: 36, Average length: 36.69 bytes (Total: 1321 bytes)
+2025-09-19 11:15:04,700 - INFO - [GCS1] Message statistics for sitl1 receiving:
+2025-09-19 11:15:04,700 - INFO - [GCS1] Type 01: Average length 46.40 bytes over 10 messages (Total: 464 bytes)
+2025-09-19 11:15:04,700 - INFO - [GCS1] Type 07: Average length 30.00 bytes over 1 messages (Total: 30 bytes)
+2025-09-19 11:15:04,700 - INFO - [GCS1] Total messages received: 11, Average length: 44.91 bytes (Total: 494 bytes)
+2025-09-19 11:15:04,701 - INFO - [GCS1] Message statistics for CMD sending:
+2025-09-19 11:15:04,701 - INFO - [GCS1] Type 1: Average length 52.00 bytes over 9 messages (Total: 468 bytes)
+2025-09-19 11:15:04,701 - INFO - [GCS1] Type 6: Average length 28.14 bytes over 7 messages (Total: 197 bytes)
+2025-09-19 11:15:04,701 - INFO - [GCS1] Type 7: Average length 29.00 bytes over 1 messages (Total: 29 bytes)
+2025-09-19 11:15:04,701 - INFO - [GCS1] Total messages sent: 17, Average length: 40.82 bytes (Total: 694 bytes)
+2025-09-19 11:15:04,701 - INFO - [GCS1] Average connection establishment time for CMD: 7428835.25 μs over 1 connection(s)
+2025-09-19 11:15:04,701 - INFO - [GCS1] Average connection establishment time for sitl1: 542085.50 μs over 1 connection(s)
+2025-09-19 11:15:04,701 - INFO - [GCS1] Overall average connection establishment time: 3985460.38 μs over 2 total connection(s)
+2025-09-19 11:15:04,702 - INFO - [GCS1] offset CMD: [3232841] μs
+2025-09-19 11:15:04,702 - INFO - [GCS1] offset sitl1: [-2162998] μs
+2025-09-19 11:15:04,702 - INFO - [GCS1] Average message processing time: 3277.54 μs for 47 messages
+2025-09-19 11:15:04,702 - INFO - [GCS1] number of packets dropted due to gap: 0
+2025-09-19 11:15:04,702 - INFO - [GCS1] Gap statistics for CMD:
+2025-09-19 11:15:04,702 - INFO - [GCS1] Type b'\x05': Average gap 300426.00 μs over 1 message(s)
+2025-09-19 11:15:04,702 - INFO - [GCS1] Type b'\x12': Average gap 110498.57 μs over 35 message(s)
+2025-09-19 11:15:04,702 - INFO - [GCS1] Total messages: 36, Average gap: 115774.33 μs
+2025-09-19 11:15:04,702 - INFO - [GCS1] Gap statistics for sitl1:
+2025-09-19 11:15:04,703 - INFO - [GCS1] Type b'\x01': Average gap 9222.70 μs over 10 message(s)
+2025-09-19 11:15:04,703 - INFO - [GCS1] Type b'\x07': Average gap 12534.00 μs over 1 message(s)
+2025-09-19 11:15:04,703 - INFO - [GCS1] Total messages: 11, Average gap: 9523.73 μs
+2025-09-19 11:15:04,703 - INFO - [GCS1] Overall average gap across all nodes: 90907.17 μs over 47 message(s)
+2025-09-19 11:15:04,710 - INFO - [GCS1] Profiling data saved to C:\Users\BRAVO\Desktop\Rebolo\tese\cert1\gcs1\script_profile.prof
+2025-09-19 11:15:04,710 - INFO - [GCS1] Shut down

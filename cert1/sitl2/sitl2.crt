@@ -1,0 +1,55 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 4101 (0x1005)
+        Signature Algorithm: ecdsa-with-SHA256
+        Issuer: CN=CA, O=ARMY, OU=AM, L=LISBON, ST=LISBON, C=PT/emailAddress=ca@example.com
+        Validity
+            Not Before: Sep 19 15:58:59 2025 GMT
+            Not After : Sep 19 15:58:59 2026 GMT
+        Subject: C=PT, ST=LISBON, L=LISBON, O=ARMY, OU=AM, CN=sitl2/emailAddress=TOMASREBOLO2001@HOTMAIL.COM
+        Subject Public Key Info:
+            Public Key Algorithm: id-ecPublicKey
+                Public-Key: (256 bit)
+                pub:
+                    04:e4:03:19:fe:f9:e4:42:06:c5:f7:a6:e0:c9:9a:
+                    a9:8f:a9:38:c3:a7:88:26:1e:71:2c:34:64:5c:97:
+                    b8:ca:4a:29:68:65:ed:d9:57:c4:f2:35:b8:29:77:
+                    4a:7f:9a:49:a8:0e:1c:c7:60:1d:0e:bf:54:49:98:
+                    71:aa:80:c2:ef
+                ASN1 OID: prime256v1
+                NIST CURVE: P-256
+        X509v3 extensions:
+            X509v3 Key Usage: critical
+                Digital Signature, Key Agreement
+            X509v3 Extended Key Usage: 
+                TLS Web Server Authentication, TLS Web Client Authentication
+            X509v3 Subject Alternative Name: 
+                IP Address:10.10.10.20, IP Address:10.10.20.20, IP Address:10.10.30.20, IP Address:172.18.6.212, IP Address:172.18.6.253, IP Address:172.18.8.24, IP Address:172.18.28.162, IP Address:172.18.17.175, IP Address:172.18.8.216, IP Address:192.168.1.58, IP Address:192.168.1.242, IP Address:172.18.8.229
+            X509v3 Subject Key Identifier: 
+                B6:14:6D:1C:3A:57:6B:41:11:B8:DE:F9:28:72:87:C2:2A:4D:E1:32
+            X509v3 Authority Key Identifier: 
+                42:28:BD:75:0B:39:D6:1C:3A:0D:68:D4:D3:8F:95:41:EA:67:93:3E
+    Signature Algorithm: ecdsa-with-SHA256
+    Signature Value:
+        30:45:02:21:00:87:32:5a:4e:db:0b:19:88:93:d8:ec:be:0f:
+        77:b0:7b:41:89:db:ed:f7:c1:38:77:5d:8b:e9:73:6f:5f:42:
+        22:02:20:7a:c8:38:ba:c9:67:cb:88:07:97:5f:71:df:34:a6:
+        f9:fa:2d:f2:31:d4:b0:23:d0:2b:76:c8:d9:8a:2b:9e:0d
+-----BEGIN CERTIFICATE-----
+MIICtTCCAlugAwIBAgICEAUwCgYIKoZIzj0EAwIwdzELMAkGA1UEAwwCQ0ExDTAL
+BgNVBAoMBEFSTVkxCzAJBgNVBAsMAkFNMQ8wDQYDVQQHDAZMSVNCT04xDzANBgNV
+BAgMBkxJU0JPTjELMAkGA1UEBhMCUFQxHTAbBgkqhkiG9w0BCQEWDmNhQGV4YW1w
+bGUuY29tMB4XDTI1MDkxOTE1NTg1OVoXDTI2MDkxOTE1NTg1OVowgYcxCzAJBgNV
+BAYTAlBUMQ8wDQYDVQQIDAZMSVNCT04xDzANBgNVBAcMBkxJU0JPTjENMAsGA1UE
+CgwEQVJNWTELMAkGA1UECwwCQU0xDjAMBgNVBAMMBXNpdGwyMSowKAYJKoZIhvcN
+AQkBFhtUT01BU1JFQk9MTzIwMDFASE9UTUFJTC5DT00wWTATBgcqhkjOPQIBBggq
+hkjOPQMBBwNCAATkAxn++eRCBsX3puDJmqmPqTjDp4gmHnEsNGRcl7jKSiloZe3Z
+V8TyNbgpd0p/mkmoDhzHYB0Ov1RJmHGqgMLvo4HFMIHCMA4GA1UdDwEB/wQEAwID
+iDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwUQYDVR0RBEowSIcECgoK
+FIcECgoUFIcECgoeFIcErBIG1IcErBIG/YcErBIIGIcErBIcoocErBIRr4cErBII
+2IcEwKgBOocEwKgB8ocErBII5TAdBgNVHQ4EFgQUthRtHDpXa0ERuN75KHKHwipN
+4TIwHwYDVR0jBBgwFoAUQii9dQs51hw6DWjU04+VQepnkz4wCgYIKoZIzj0EAwID
+SAAwRQIhAIcyWk7bCxmIk9jsvg93sHtBidvt98E4d12L6XNvX0IiAiB6yDi6yWfL
+iAeXX3HfNKb5+i3yMdSwI9ArdsjZiiueDQ==
+-----END CERTIFICATE-----
