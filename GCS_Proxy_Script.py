@@ -69,7 +69,7 @@ MISSION_PLANNER_IP = "127.0.0.1"
 
 VALID_TYPES = [b'\x01', b'\x02', b'\x03', b'\x04', b'\x05', b'\x06', b'\x07', b'\x11', b'\x12', b'\x13', b'\x14', b'\x15', b'\x16', b'\x17']
 #CERT_DIR = rf"C:\Users\BRAVO\Desktop\Rebolo\tese\cert1\{GCS_NAME}"
-CERT_DIR = rf"C:\Users\Admin\Desktop\tecnico\tese\tese\cert1\{GCS_NAME}"
+CERT_DIR = rf"C:\Users\Admin\Desktop\tecnico\tese\NC2S_Repository\NC2S-Repository\cert1\{GCS_NAME}"
 MISSION_DIR = f"{CERT_DIR}\\missions"
 GCS_CERT = f"{CERT_DIR}\\{GCS_NAME}.crt"
 GCS_KEY = f"{CERT_DIR}\\{GCS_NAME}.key"

@@ -54,7 +54,7 @@ CRL_LIFETIME_SECONDS = 365 * 24 * 60 * 60
 LOG_MODE = 0
 def load_config(cmd2_name):
     global CERT_DIR, CREDENTIAL_DIR, CRL_DIR, CMD2_CERT, CMD2_KEY, CA_CERT, MISSION_DIR, CRL_CERT_DIR, POLICY_FILE, PR2cmd, PU2cmd, cmd2_cert, cmd2_cn, PUcmd, current_cert_crl, ca_pubkey, ca_cert
-    CERT_DIR = rf"C:\Users\Admin\Desktop\tecnico\tese\tese\cert1\{cmd2_name}"
+    CERT_DIR = rf"C:\Users\Admin\Desktop\tecnico\tese\NC2S_Repository\NC2S-Repository\cert1\{cmd2_name}"
     MISSION_DIR = f"{CERT_DIR}\\missions"
     CREDENTIAL_DIR = os.path.join(CERT_DIR, "credentials")
     CRL_DIR = os.path.join(CERT_DIR, "crl")

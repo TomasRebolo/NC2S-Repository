@@ -63,7 +63,7 @@ LOG_MODE = int(LOG_MODE)
 
 # Configuration
 #CERT_DIR = r"C:\Users\5066\Desktop\Rebolo\2CMD1\tese\cert1\cmd"
-CERT_DIR = r"C:\Users\Admin\Desktop\tecnico\tese\tese\cert1\cmd"
+CERT_DIR = r"C:\Users\Admin\Desktop\tecnico\tese\NC2S_Repository\NC2S-Repository\cert1\cmd"
 CREDENTIAL_DIR = os.path.join(CERT_DIR, "credentials")
 CRL_DIR = os.path.join(CERT_DIR, "crl")
 CMD_CERT = os.path.join(CERT_DIR, "cmd.crt")
